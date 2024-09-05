@@ -34,7 +34,7 @@ The three tables can be joined using the common `listing_id` column. However, th
 
 ### 4. Revenue and Bedroom Count Analysis (Chart 4)
    - **Analysis**: Number of bedrooms vs. sum of prices.  
-   - **Insights**: As the number of bedrooms increases, both revenue and listing count decrease, following a logical pattern.  
+   - **Insights**: As the number of bedrooms increases, both total revenue and listing count i.e. w.r.t to number of bedrooms decreases, following a logical pattern.  
    - **Note**: Excludes null and zero values.
 
 ### 5. Average Price per Bedroom (Chart 5)
