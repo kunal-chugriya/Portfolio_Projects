@@ -53,4 +53,8 @@ Three slicers have been added to the dashboard for interactive filtering:
   - A reversal is observed for 2, 3, and 4 cars. Notably:
     - People with 2 cars show a significant drop in bike purchases: 218 did not buy a bike compared to 124 who did.
     - The percentage increase in non-bike purchases was 89.5% from people with 1 car, while the decrease for buyers was only 18.4%.
+   
+      
+![Bike sales Excel Dashboard](https://github.com/user-attachments/assets/2c1e5a67-9af4-492f-bdd7-6aba6148029d)   
+    
 
