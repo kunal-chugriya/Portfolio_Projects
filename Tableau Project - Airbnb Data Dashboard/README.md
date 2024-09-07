@@ -45,6 +45,8 @@ The three tables can be joined using the common `listing_id` column. However, th
    - **Analysis**: Number of properties and average price by square footage.  
    - **Insights**: For example, properties with 710 sq. ft. have an average price of $262, which is significantly higher than properties with 675 sq. ft. and 700 sq. ft., likely due to location.
 
+![Final_Dashboard_Screenshot](https://github.com/user-attachments/assets/4fbc9bca-c6f3-4156-a025-bef5a5382555)
+
 ---
 
 ### Notes:
