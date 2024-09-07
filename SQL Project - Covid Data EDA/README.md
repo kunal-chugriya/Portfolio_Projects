@@ -34,41 +34,61 @@ This project involves Exploratory Data Analysis (EDA) on COVID-19 data, focusing
 
 `SELECT iso_code, continent, location, date, population, total_cases, new_cases, total_deaths, new_deaths,         (CAST(total_deaths AS FLOAT) / CAST(total_cases AS FLOAT)) * 100 AS Death_percentage  FROM PortfolioProjects..CovidDeaths$  ORDER BY continent, location, date;   `
 
+![Query_output_1](https://github.com/user-attachments/assets/b460752b-0561-45fa-b7fc-cd6009ef398c)
+
 #### 2\. Case Percentage w.r.t Population
 
 `SELECT iso_code, continent, location, date, population, total_cases, new_cases, total_deaths, new_deaths,         ROUND(((CAST(total_cases AS FLOAT) / CAST(population AS FLOAT))) * 100, 2) AS Total_case_percentage  FROM PortfolioProjects..CovidDeaths$  ORDER BY continent, location, date;   `
+
+![Query_output_2](https://github.com/user-attachments/assets/b7d044ad-4e6b-4832-af53-d29615c876b7)
 
 #### 3\. Most Impacted Locations
 
 `SELECT location, population, MAX(CAST(total_cases AS FLOAT)) AS HighestInfectionCount,         MAX((CAST(total_cases AS FLOAT) / CAST(population AS FLOAT))) * 100 AS PercentagePopulationInfected  FROM PortfolioProjects..CovidDeaths$  GROUP BY location, population  ORDER BY PercentagePopulationInfected DESC;   `
 
+![Query_output_3](https://github.com/user-attachments/assets/fd78e673-6645-443f-883d-f7a487aa71bd)
+
 #### 4\. Countries with Highest Deaths w.r.t Population
 
 `SELECT location, MAX(CAST(population AS FLOAT)) AS population, MAX(CAST(total_deaths AS FLOAT)) AS HighestDeathCount,         MAX((CAST(total_deaths AS FLOAT) / CAST(population AS FLOAT))) * 100 AS PercentagePopulationDeath  FROM PortfolioProjects..CovidDeaths$  GROUP BY location  ORDER BY PercentagePopulationDeath DESC;   `
+
+![Query_output_4](https://github.com/user-attachments/assets/df22c088-7725-4e4a-bf5f-c6d13fd1c2e5)
 
 #### 5\. Continents with Highest Deaths w.r.t Population
 
 `SELECT continent, MAX(CAST(population AS FLOAT)) AS population, MAX(CAST(total_deaths AS FLOAT)) AS HighestDeathCount,         MAX((CAST(total_deaths AS FLOAT) / CAST(population AS FLOAT))) * 100 AS PercentagePopulationDeath  FROM PortfolioProjects..CovidDeaths$  GROUP BY continent  ORDER BY PercentagePopulationDeath DESC;   `
 
+![Query_output_5](https://github.com/user-attachments/assets/0c7b372a-d610-42d6-85fe-e02706af5b85)
+
 #### 6\. Global Numbers (Daily)
 
 `SELECT date, SUM(daily_total_cases) OVER (ORDER BY date) AS Global_daily_cases,         SUM(daily_total_deaths) OVER (ORDER BY date) AS Global_daily_deaths,         (SUM(daily_total_deaths) OVER (ORDER BY date) / SUM(daily_total_cases) OVER (ORDER BY date)) * 100 AS Global_death_percentage  FROM (SELECT date, SUM(new_cases) AS daily_total_cases, SUM(new_deaths) AS daily_total_deaths        FROM PortfolioProjects..CovidDeaths$        GROUP BY date) a  ORDER BY date; `
+
+![Query_output_6](https://github.com/user-attachments/assets/de5c5a3e-c4bb-495b-8e99-5177f77a53b1)
 
 #### 7\. Global Summary
 
 `SELECT SUM(daily_total_cases) AS total_cases, SUM(daily_total_deaths) AS total_deaths,         (SUM(daily_total_deaths) / SUM(daily_total_cases)) * 100 AS total_death_percentage  FROM (SELECT date, SUM(new_cases) AS daily_total_cases, SUM(new_deaths) AS daily_total_deaths        FROM PortfolioProjects..CovidDeaths$        GROUP BY date) a;   `
 
+![Query_output_7](https://github.com/user-attachments/assets/052053b5-e74f-46ff-b33f-5df0a5c3fe91)
+
 #### 8\. Overview of COVID Data
 
 `SELECT dea.location, MAX(CAST(dea.population AS FLOAT)) AS population,         SUM(CAST(dea.new_cases AS FLOAT)) AS TotalCaseCount,          SUM(CAST(dea.new_deaths AS FLOAT)) AS TotalDeathCount,          SUM(CAST(vac.new_tests AS FLOAT)) AS TotalTestCount,          SUM(CAST(vac.new_vaccinations AS FLOAT)) AS TotalVaccinationCount,          AVG(CAST(vac.tests_per_case AS FLOAT)) AS AvgTestPerCase,          MAX((CAST(dea.total_cases AS FLOAT) / CAST(dea.population AS FLOAT))) * 100 AS HighestPercentageCase,         MAX((CAST(dea.total_deaths AS FLOAT) / CAST(dea.total_cases AS FLOAT))) * 100 AS HighestPercentageCaseDeath,         MAX(CAST(dea.total_deaths AS FLOAT) / CAST(dea.population AS FLOAT)) * 100 AS HighestPercentagePopulationDeath,         MAX(CAST(vac.total_vaccinations AS FLOAT) / CAST(dea.population AS FLOAT)) * 100 AS HighestPercentagePopulationVaccinated  FROM PortfolioProjects..CovidDeaths$ dea  JOIN PortfolioProjects..CovidVaccinations$ vac ON dea.continent = vac.continent     AND dea.date = vac.date AND dea.iso_code = vac.iso_code AND dea.location = vac.location  GROUP BY dea.location  ORDER BY HighestPercentageCase DESC;   `
+
+![Query_output_8](https://github.com/user-attachments/assets/a284a9a8-672d-433a-bd8b-506df7382e2e)
 
 #### 9\. Per Day Total Vaccinations for All Nations
 
 `SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations,         SUM(CONVERT(FLOAT, vac.new_vaccinations)) OVER (PARTITION BY dea.continent, dea.location ORDER BY dea.date) AS Rolling_count_patients_vaccinated  FROM PortfolioProjects..CovidDeaths$ dea  JOIN PortfolioProjects..CovidVaccinations$ vac ON dea.continent = vac.continent     AND dea.date = vac.date AND dea.iso_code = vac.iso_code AND dea.location = vac.location  ORDER BY dea.location, dea.date;   `
 
+![Query_output_9](https://github.com/user-attachments/assets/34cf093e-0413-4144-95a3-59f4233546ea)
+
 #### 10\. Percentage of Population Vaccinated
 
 `WITH PopVac AS (      SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations,             SUM(CONVERT(FLOAT, vac.new_vaccinations)) OVER (PARTITION BY dea.continent, dea.location ORDER BY dea.date) AS Rolling_count_patients_vaccinated      FROM PortfolioProjects..CovidDeaths$ dea      JOIN PortfolioProjects..CovidVaccinations$ vac ON dea.continent = vac.continent         AND dea.date = vac.date AND dea.iso_code = vac.iso_code AND dea.location = vac.location  )  SELECT *, (Rolling_count_patients_vaccinated / population) * 100 AS total_percentage_vaccinated_population  FROM PopVac  ORDER BY location, date;   `
+
+![Query_output_10](https://github.com/user-attachments/assets/20ccc70d-fd9c-486e-a7ec-f9ddd65be83b)
 
 #### 11\. Create and Populate Temp Table
 
