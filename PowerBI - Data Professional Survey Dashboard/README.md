@@ -34,3 +34,6 @@ This project focuses on creating a dashboard using Power BI based on survey data
 - There are potential disparities in earnings across different ethnicities, though more variables are needed for a thorough analysis.
 - Those who found it easier to enter the data field generally earn higher salaries.
 - In case of gender, a lack of significant pay disparity is observed.
+
+
+![Data Professional Survey Dashboard](https://github.com/user-attachments/assets/27857142-08c2-4b47-a08a-a9c1cda4321a)
