@@ -46,9 +46,3 @@ The three tables can be joined using the common `listing_id` column. However, th
    - **Insights**: For example, properties with 710 sq. ft. have an average price of $262, which is significantly higher than properties with 675 sq. ft. and 700 sq. ft., likely due to location.
 
 ![Final_Dashboard_Screenshot](https://github.com/user-attachments/assets/4fbc9bca-c6f3-4156-a025-bef5a5382555)
-
----
-
-### Notes:
-- To make the sheet names bold, select the entire sheet name, click on the **bold** option, and apply it in Tableau.
-- Some fields might automatically convert to measures for aggregate functions in Tableau. To prevent this, right-click the field and convert it into a dimension as needed.
