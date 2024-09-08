@@ -2,6 +2,17 @@
 
 This project involves scraping product details from Amazon, monitoring prices, and sending email notifications when prices fall below user-defined thresholds. The process stops once all target prices are met.
 
+## Tools and Libraries
+
+The **Amazon Price Tracker** project uses the following tools and libraries, and was developed in a Jupyter Notebook environment:
+
+- **`requests`**: For fetching HTML content from product URLs.
+- **`BeautifulSoup`**: For parsing and extracting data from HTML.
+- **`pandas`**: For managing and storing data in CSV files.
+- **`smtplib`**: For sending email notifications when price thresholds are met.
+- **`os`**: For checking file existence and managing file operations.
+
+
 ## 1. Taking User Inputs
 
 - **URLs of Products**: Users input a comma-separated list of product URLs to track.
