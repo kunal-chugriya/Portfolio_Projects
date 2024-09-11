@@ -15,7 +15,7 @@ Feel free to reach out to me via:
 3. [COVID-19 Data Analysis](https://github.com/kunal-chugriya/Portfolio_Projects/tree/main/SQL%20Project%20-%20Covid%20Data%20EDA)
 4. [Python - Amazon Deal Finder](https://github.com/kunal-chugriya/Portfolio_Projects/tree/main/Python%20Web%20Scraping%20project%20-%20Amazon%20Deal%20Finder)
 5. [World Population Data Analysis](https://github.com/kunal-chugriya/Portfolio_Projects/tree/main/Pandas%20Project%20-%20EDA%20of%20World%20population%20data)
-6. [SQL Project - Housing Data Cleaning](#6-sql-project---housing-data-cleaning)
+6. [SQL Project - Housing Data Cleaning](https://github.com/kunal-chugriya/Portfolio_Projects/tree/main/SQL%20Project%20-%20Housing%20Data%20%20Cleaning)
 7. [Web Scraping Data for Palm Beach (NSW)](https://github.com/kunal-chugriya/Portfolio_Projects/tree/main/Python%20Web%20Scraping%20Project%20-%20Australian%20Census%20Site)
 8. [Bike Sales Analysis - Excel Project](https://github.com/kunal-chugriya/Portfolio_Projects/tree/main/Excel%20Project%20-%20Bike%20Sales%20Dashboard)
 
